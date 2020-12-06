@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'common/header.html' %}
+<body>
+    <header id="header-wrap">
+        {% include 'common/navbar.html' %}
+    </header>
+
+    <div class="page-header" style="background: url(assets/img/banner1.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="breadcrumb-wrapper">
+                        <h2 class="product-title">Join Us</h2>
+                        <ol class="breadcrumb">
+                            <li><a href="#">Home /</a></li>
+                            <li class="current">Register</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="register section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-12 col-xs-12">
+                    <div class="register-form login-area">
+                        <h3>
+                            Register
+                        </h3>
+                        <form class="login-form" action="/signup/" method="post">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                {% if field.name != 'agree' %}
+                                    <div class="form-group">
+                                        <div class="input-icon">
+                                            <i class="{{field.label}}"></i>
+                                            {{ field }}
+                                        </div>
+                                        <p>{{field.errors}}</p>
+                                    </div>
+                                {% else %}
+                                    <div class="form-group mb-3">
+                                        <div class="custom-control custom-checkbox">
+                                            {{field}}
+                                            <label class="custom-control-label" for="id_agree">By registering, you accept our
+                                                Terms & Conditions</label>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-common log-btn">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'common/footer.html' %}
+</body>
+</html>

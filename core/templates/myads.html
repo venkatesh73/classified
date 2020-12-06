@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include 'common/header.html' %}
+    {% load static %}
+<body>
+    <header id="header-wrap">
+        {% include 'common/navbar.html' %}
+    </header>
+    <div class="page-header" style="background: url(/static/assets/img/banner1.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="breadcrumb-wrapper">
+                        <h2 class="product-title">My Ads</h2>
+                        <ol class="breadcrumb">
+                            <li><a href="#">Home /</a></li>
+                            <li class="current">My Ads</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="content" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-4 col-lg-3 page-sidebar">
+                    <aside>
+                        <div class="sidebar-box">
+                            <div class="user">
+                                <figure>
+                                    <a href="#"><img src="/static/assets/img/author/img1.jpg" alt=""></a>
+                                </figure>
+                                <div class="usercontent">
+                                    <h3>Hello!</h3>
+                                    <h4>{{request.user.first_name}}</h4>
+                                </div>
+                            </div>
+                            <nav class="navdashboard">
+                                <ul>
+                                    <li>
+                                        <a href="/dashboard">
+                                            <i class="lni-dashboard"></i>
+                                            <span>Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/profile">
+                                            <i class="lni-cog"></i>
+                                            <span>Profile Settings</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/myads">
+                                            <i class="lni-layers"></i>
+                                            <span>My Ads</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/signout">
+                                            <i class="lni-enter"></i>
+                                            <span>Logout</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </aside>
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-9">
+                    <div class="page-content">
+                        <div class="inner-box">
+                            <div class="dashboard-box">
+                                <h2 class="dashbord-title">My Ads</h2>
+                            </div>
+                            <div class="dashboard-wrapper">
+                                <nav class="nav-table">
+                                    <ul>
+                                        <li class="active"><a href="#">All Ads (42)</a></li>
+                                        <li><a href="#">Published (88)</a></li>
+                                        <li><a href="#">Featured (12)</a></li>
+                                        <li><a href="#">Sold (02)</a></li>
+                                        <li><a href="#">Active (42)</a></li>
+                                        <li><a href="#">Expired (01)</a></li>
+                                    </ul>
+                                </nav>
+                                {% if myads %}
+                                <table class="table table-responsive dashboardtable tablemyads">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="checkedall">
+                                                    <label class="custom-control-label" for="checkedall"></label>
+                                                </div>
+                                            </th>
+                                            <th>Photo</th>
+                                            <th>Title</th>
+                                            <th>Category</th>
+                                            <th>Ad Status</th>
+                                            <th>Price</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for ads in myads %}
+                                            <tr data-category="active">
+                                                <td>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="adone">
+                                                        <label class="custom-control-label" for="adone"></label>
+                                                    </div>
+                                                </td>
+                                                <td class="photo">
+                                                    <img class="img-fluid" src="{% static ads.media %}"
+                                                        alt="">
+                                                </td>
+                                                <td data-title="Title">
+                                                    <h3>{{ads.title}}</h3>
+                                                    <span>Ad ID: ng3D5hAMHPajQrM</span>
+                                                </td>
+                                                <td data-title="Category"><span class="adcategories">{{ads.category.name}}</span>
+                                                </td>
+                                                <td data-title="Ad Status"><span
+                                                        class="adstatus adstatusactive">active</span></td>
+                                                <td data-title="Price">
+                                                    <h3>
+                                                        {% if ads.price_on_call %}
+                                                            ON Request
+                                                        {% else %}
+                                                            {{ads.price}}
+                                                        {% endif %}
+                                                    </h3>
+                                                </td>
+                                                <td data-title="Action">
+                                                    <div class="btns-actions">
+                                                        <a class="btn-action btn-view" href="#"><i class="lni-eye"></i></a>
+                                                        <a class="btn-action btn-edit" href="#"><i
+                                                                class="lni-pencil"></i></a>
+                                                        <a class="btn-action btn-delete" href="#"><i
+                                                                class="lni-trash"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                    <h5 class="text-center">No Post Created yet <a href="/post">cilck here to create one</a></h5>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'common/footer.html' %}
+</body>
+</html>

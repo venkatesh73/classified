@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'common/header.html' %}
+<body>
+    <header id="header-wrap">
+        {% include 'common/navbar.html' %}
+    </header>
+
+    <div class="page-header" style="background: url(assets/img/banner1.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="breadcrumb-wrapper">
+                        <h2 class="product-title">Login</h2>
+                        <ol class="breadcrumb">
+                            <li><a href="index-2.html">Home /</a></li>
+                            <li class="current">Login</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="login section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-12 col-xs-12">
+                    <div class="login-form login-area">
+                        <h3>
+                            Login Now
+                        </h3>
+                        <form role="form" class="login-form" action="/signin/" method="post">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                {% if field.name != 'keep_loggedin' %}
+                                    <div class="form-group">
+                                        <div class="input-icon">
+                                            <i class="{{field.label}}"></i>
+                                            {{field}}
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="form-group mb-3">
+                                        <div class="custom-control custom-checkbox">
+                                            {{field}}
+                                            <label class="custom-control-label" for="id_keep_loggedin">Keep me logged in</label>
+                                        </div>
+                                        <a class="forgetpassword" href="/forgot-password">Forgot Password?</a>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                            <div class="text-center">
+                                <button class="btn btn-common log-btn">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include 'common/footer.html' %}
+</body>
+</html>

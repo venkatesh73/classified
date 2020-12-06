@@ -1,0 +1,472 @@
+[
+    {
+      "fields" : {
+        "code" : "CITY047",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "West Pokot",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 47
+    },
+    {
+      "fields" : {
+        "code" : "CITY046",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Wajir",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 46
+    },
+    {
+      "fields" : {
+        "code" : "CITY045",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Vihiga",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 45
+    },
+    {
+      "fields" : {
+        "code" : "CITY044",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Uasin Gishu",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 44
+    },
+    {
+      "fields" : {
+        "code" : "CITY043",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Turkana",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 43
+    },
+    {
+      "fields" : {
+        "code" : "CITY042",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Trans-Nzoia",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 42
+    },
+    {
+      "fields" : {
+        "code" : "CITY041",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Tharaka-Nithi",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 41
+    },
+    {
+      "fields" : {
+        "code" : "CITY040",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Tana River",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 40
+    },
+    {
+      "fields" : {
+        "code" : "CITY039",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Taita Taveta",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 39
+    },
+    {
+      "fields" : {
+        "code" : "CITY038",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Siaya",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 38
+    },
+    {
+      "fields" : {
+        "code" : "CITY037",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Samburu",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 37
+    },
+    {
+      "fields" : {
+        "code" : "CITY036",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Nyeri",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 36
+    },
+    {
+      "fields" : {
+        "code" : "CITY035",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Nyandarua",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 35
+    },
+    {
+      "fields" : {
+        "code" : "CITY034",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Nyamira",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 34
+    },
+    {
+      "fields" : {
+        "code" : "CITY033",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Narok",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 33
+    },
+    {
+      "fields" : {
+        "code" : "CITY032",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Nandi",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 32
+    },
+    {
+      "fields" : {
+        "code" : "CITY031",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Nakuru",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 31
+    },
+    {
+      "fields" : {
+        "code" : "CITY030",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Nairobi",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 30
+    },
+    {
+      "fields" : {
+        "code" : "CITY029",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Murang'a",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 29
+    },
+    {
+      "fields" : {
+        "code" : "CITY028",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Mombasa",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 28
+    },
+    {
+      "fields" : {
+        "code" : "CITY027",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Migori",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 27
+    },
+    {
+      "fields" : {
+        "code" : "CITY026",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Meru",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 26
+    },
+    {
+      "fields" : {
+        "code" : "CITY025",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Marsabit",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 25
+    },
+    {
+      "fields" : {
+        "code" : "CITY024",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Mandera",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 24
+    },
+    {
+      "fields" : {
+        "code" : "CITY023",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Makueni",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 23
+    },
+    {
+      "fields" : {
+        "code" : "CITY022",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Machakos",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 22
+    },
+    {
+      "fields" : {
+        "code" : "CITY021",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Lamu",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 21
+    },
+    {
+      "fields" : {
+        "code" : "CITY020",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Laikipia",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 20
+    },
+    {
+      "fields" : {
+        "code" : "CITY019",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Kwale",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 19
+    },
+    {
+      "fields" : {
+        "code" : "CITY018",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Kitui",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 18
+    },
+    {
+      "fields" : {
+        "code" : "CITY017",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Kisumu",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 17
+    },
+    {
+      "fields" : {
+        "code" : "CITY016",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Kisii",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 16
+    },
+    {
+      "fields" : {
+        "code" : "CITY015",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Kirinyaga",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 15
+    },
+    {
+      "fields" : {
+        "code" : "CITY014",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Kilifi",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 14
+    },
+    {
+      "fields" : {
+        "code" : "CITY013",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Kiambu",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 13
+    },
+    {
+      "fields" : {
+        "code" : "CITY012",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Kericho",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 12
+    },
+    {
+      "fields" : {
+        "code" : "CITY011",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Kakamega",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 11
+    },
+    {
+      "fields" : {
+        "code" : "CITY010",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Kajiado",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 10
+    },
+    {
+      "fields" : {
+        "code" : "CITY009",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Isiolo",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 9
+    },
+    {
+      "fields" : {
+        "code" : "CITY008",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Homa Bay",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 8
+    },
+    {
+      "fields" : {
+        "code" : "CITY007",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Garissa",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 7
+    },
+    {
+      "fields" : {
+        "code" : "CITY006",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Embu",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 6
+    },
+    {
+      "fields" : {
+        "code" : "CITY005",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Elgeyo-Marakwet",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 5
+    },
+    {
+      "fields" : {
+        "code" : "CITY004",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Busia",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 4
+    },
+    {
+      "fields" : {
+        "code" : "CITY003",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Bungoma",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 3
+    },
+    {
+      "fields" : {
+        "code" : "CITY002",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Bomet",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 2
+    },
+    {
+      "fields" : {
+        "code" : "CITY001",
+        "created_at" : "2020-11-18 10:32:37",
+        "name" : "Baringo",
+        "updated_at" : "2020-11-18 10:32:37"
+      },
+      "model" : "core.city",
+      "pk" : 1
+    }
+  ]

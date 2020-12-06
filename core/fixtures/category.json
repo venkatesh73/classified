@@ -1,0 +1,68 @@
+[
+    {
+        "model": "core.category",
+        "pk": 1,
+        "fields": {
+            "name": "Commercial Equipment & Tools",
+            "code": "CAT001",
+            "logo": "CAT001.png",
+            "created_at": "2020-11-18 10:32:37",
+            "updated_at": "2020-11-18 10:32:37"
+        }
+    },
+    {
+        "model": "core.category",
+        "pk": 2,
+        "fields": {
+            "name": "Electronics",
+            "code": "CAT002",
+            "logo": "CAT002.png",
+            "created_at": "2020-11-18 10:32:37",
+            "updated_at": "2020-11-18 10:32:37"
+        }
+    },
+    {
+        "model": "core.category",
+        "pk": 3,
+        "fields": {
+            "name": "Furniture & Appliances",
+            "code": "CAT003",
+            "logo": "CAT004.png",
+            "created_at": "2020-11-18 10:32:37",
+            "updated_at": "2020-11-18 10:32:37"
+        }
+    },
+    {
+        "model": "core.category",
+        "pk": 4,
+        "fields": {
+            "name": "Property",
+            "code": "CAT004",
+            "logo": "CAT004.png",
+            "created_at": "2020-11-18 10:32:37",
+            "updated_at": "2020-11-18 10:32:37"
+        }
+    },
+    {
+        "model": "core.category",
+        "pk": 5,
+        "fields": {
+            "name": "Repair & Construction",
+            "code": "CAT005",
+            "logo": "CAT005.png",
+            "created_at": "2020-11-18 10:32:37",
+            "updated_at": "2020-11-18 10:32:37"
+        }
+    },
+    {
+        "model": "core.category",
+        "pk": 6,
+        "fields": {
+            "name": "Vehicles",
+            "code": "CAT006",
+            "logo": "CAT006.png",
+            "created_at": "2020-11-18 10:32:37",
+            "updated_at": "2020-11-18 10:32:37"
+        }
+    }
+]

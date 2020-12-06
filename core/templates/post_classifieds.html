@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% include 'common/header.html' %}
+<link rel="stylesheet" type="text/css" href="{% static 'assets/css/summernote.css' %}">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+{{ form.media }}
+<body>
+    <header id="header-wrap">
+        {% include 'common/navbar.html' %}
+    </header>
+
+    <div class="page-header" style="background: url(/static/assets/img/banner1.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="breadcrumb-wrapper">
+                        <h2 class="product-title">Post you Ads</h2>
+                        <ol class="breadcrumb">
+                            <li><a href="#">Home /</a></li>
+                            <li class="current">Post you Ads</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="content" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-4 col-lg-3 page-sidebar">
+                    <aside>
+                        <div class="sidebar-box">
+                            <div class="user">
+                                <figure>
+                                    <a href="#"><img src="/static/assets/img/author/img1.jpg" alt=""></a>
+                                </figure>
+                                <div class="usercontent">
+                                    <h3>Hello!</h3>
+                                    <h4>{{request.user.first_name}}</h4>
+                                </div>
+                            </div>
+                            <nav class="navdashboard">
+                                <ul>
+                                    <li>
+                                        <a href="/dashboard">
+                                            <i class="lni-dashboard"></i>
+                                            <span>Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/profile">
+                                            <i class="lni-cog"></i>
+                                            <span>Profile Settings</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/myads">
+                                            <i class="lni-layers"></i>
+                                            <span>My Ads</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/signout">
+                                            <i class="lni-enter"></i>
+                                            <span>Logout</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </aside>
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-9">
+                    <div class="row page-content">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="inner-box">
+                                <div class="dashboard-box">
+                                    <h2 class="dashbord-title">Ad Detail</h2>
+                                </div>
+                                <div class="dashboard-wrapper">
+                                    <form method="POST" action="/post/" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        {% for field in form %}
+                                            {% if field.name != "price_on_call" and field.name != "classifieds_media"%}
+                                                <div class="form-group mb-3">
+                                                    <label class="control-label">{{field.label}} <span class="text-danger">*</span></label>
+                                                    {{field}}
+                                                </div>
+                                            {% endif %}
+                                            {% if field.name == "price_on_call" %}
+                                                <div class="tg-checkbox mt-3">
+                                                    <div class="custom-control custom-checkbox">
+                                                        {{field}}
+                                                        <label class="custom-control-label" for="id_price_on_call">Price On
+                                                            Call</label>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            {% if field.name == "classifieds_media" %}
+                                                <label class="text-danger">Atlest one media file is required *</label>
+                                                <label class="tg-fileuploadlabel" for="tg-photogallery">
+                                                    <span>Drop files anywhere to upload</span>
+                                                    <span>Or</span>
+                                                    <span class="btn btn-common">Select Files</span>
+                                                    <span>Maximum upload file size: 2.5 MB</span>
+                                                    {{field}}
+                                                </label>
+                                            {% endif %}
+                                            {{field.errors}}
+                                        {% endfor %}
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-lg btn-common">Post Ad</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'common/footer.html' %}
+</body>
+</html>
