@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 from core import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name="index"),
@@ -28,7 +30,7 @@ urlpatterns = [
     path('myads/', views.my_ads, name="Dashboard My Ads"),
     path('backoffice/', admin.site.urls),
     path('summernote/', include('django_summernote.urls'))
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += [
     re_path(r'^classifieds/(?:city=(?P<locations>\w+)/)?/(?:category=(?P<category_id>\w+)/)?$', views.classifieds, name="classifieds")
