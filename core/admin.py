@@ -11,7 +11,7 @@ class CityAdmin(admin.ModelAdmin):
     list_display = ('name', 'code')
 
 class ClassifiedsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'user')
+    list_display = ('title', 'sub_category', 'user')
 
 class ClassifiedsInterestAdmin(admin.ModelAdmin):
     list_display = ('classifieds', 'user')

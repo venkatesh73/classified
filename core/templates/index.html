@@ -19,8 +19,8 @@
                                     <form class="search-form">
                                         <div class="form-group inputwithicon">
                                             <div class="select">
-                                                <select>
-                                                    <option value="none">Locations</option>
+                                                <select onchange="searchAttribute(event)" name="city" id="city_filter">
+                                                    <option value="">Locations</option>
                                                     {% for city in locations %}
                                                         <option value="{{city.id}}">{{city.name}}</option>
                                                     {% endfor %}
@@ -30,17 +30,21 @@
                                         </div>
                                         <div class="form-group inputwithicon">
                                             <div class="select">
-                                                <select>
-                                                    <option value="none">Select Catagory</option>
-                                                    {% for cat in categories %}
-                                                        <option value="{{cat.id}}">{{cat.name}}</option>
+                                                <select onchange="searchAttribute(event)" name="category" id="caegory_filter">
+                                                    <option value="">Select Catagory</option>
+                                                    {% for cat, sub_cat in sub_categories %}
+                                                    <optgroup label="{{cat}}">
+                                                        {% for sub in  sub_cat %}
+                                                            <option value="{{sub.id}}">{{sub.name}}</option>
+                                                        {% endfor %}
+                                                    </optgroup>
                                                     {% endfor %}
                                                 </select>
                                             </div>
                                             <i class="lni-menu"></i>
                                         </div>
-                                        <button class="btn btn-common" type="button"><i class="lni-search"></i> Search
-                                            Now</button>
+                                        <a id="serach_btn" class="btn btn-common" type="button" href="/classifieds"><i class="lni-search"></i> Search
+                                            Now</a>
                                     </form>
                                 </div>
                             </div>
@@ -78,227 +82,52 @@
 
     <section class="featured section-padding">
         <div class="container">
-            <h1 class="section-title">Latest Products</h1>
+            <h1 class="section-title">Featured Products</h1>
             <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-                    <div class="featured-box">
-                        <figure>
-                            <div class="icon">
-                                <span class="bg-green"><i class="lni-heart"></i></span>
-                                <span><i class="lni-bookmark"></i></span>
-                            </div>
-                            <a href="#"><img class="img-fluid" src="assets/img/featured/img-1.jpg" alt=""></a>
-                        </figure>
-                        <div class="feature-content">
-                            <div class="product">
-                                <a href="#">Electronic > </a>
-                                <a href="#">Cameras</a>
-                            </div>
-                            <h4><a href="ads-details.html">Canon SX Powershot ...</a></h4>
-                            <div class="meta-tag">
-                                <span>
-                                    <a href="#"><i class="lni-user"></i> John Smith</a>
-                                </span>
-                                <span>
-                                    <a href="#"><i class="lni-map-marker"></i> New York, US</a>
-                                </span>
-                                <span>
-                                    <a href="#"><i class="lni-tag"></i> Canon</a>
-                                </span>
-                            </div>
-                            <p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry.</p>
-                            <div class="listing-bottom">
-                                <h3 class="price float-left">$249.00</h3>
-                                <a href="ads-details.html" class="btn btn-common float-right">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-                    <div class="featured-box">
-                        <figure>
-                            <span class="price-save">
-                                25% Save
-                            </span>
-                            <div class="icon">
-                                <span class="bg-green"><i class="lni-heart"></i></span>
-                                <span><i class="lni-bookmark"></i></span>
-                            </div>
-                            <a href="#"><img class="img-fluid" src="assets/img/featured/img-2.jpg" alt=""></a>
-                        </figure>
-                        <div class="feature-content">
-                            <div class="product">
-                                <a href="#">Electronic > </a>
-                                <a href="#">Computers</a>
-                            </div>
-                            <h4><a href="ads-details.html">Apple Macbook Pro ...</a></h4>
-                            <div class="meta-tag">
-                                <span>
-                                    <a href="#"><i class="lni-user"></i> Sara Doe</a>
-                                </span>
-                                <span>
-                                    <a href="#"><i class="lni-map-marker"></i> California, US</a>
-                                </span>
-                                <span>
-                                    <a href="#"><i class="lni-tag"></i> Phones</a>
-                                </span>
-                            </div>
-                            <p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry.</p>
-                            <div class="listing-bottom">
-                                <h3 class="price float-left">$289.00</h3>
-                                <a href="ads-details.html" class="btn btn-common float-right">View Details</a>
+                {% if latest_products %}
+                    {% for product in latest_products %}
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
+                        <div class="featured-box">
+                            <figure>
+                                <!-- <div class="icon">
+                                    <span class="bg-green"><i class="lni-heart"></i></span>
+                                    <span><i class="lni-bookmark"></i></span>
+                                </div> -->
+                                <a href="#"><img class="img-fluid" src="{% static product.media %}" alt=""></a>
+                            </figure>
+                            <div class="feature-content">
+                                <div class="product">
+                                    <a href="#">{{product.sub_category.category.name}} > </a>
+                                    <a href="#">{{product.sub_category.name}}</a>
+                                </div>
+                                <h4><a href="#">{{product.title}}</a></h4>
+                                <div class="meta-tag">
+                                    <span>
+                                        <a href="#"><i class="lni-user"></i> {{product.user.first_name}} </a>
+                                    </span>
+                                    <span>
+                                        <a href="#"><i class="lni-map-marker"></i>{{product.cities.name}}</a>
+                                    </span>
+                                    <span>
+                                        <a href="#"><i class="lni-tag"></i>{{product.sub_category.name}}</a>
+                                    </span>
+                                </div>
+                                <p class="dsc">
+                                    {{product.description|safe}}
+                                </p>
+                                <div class="listing-bottom">
+                                    <h3 class="price float-left">KES{{product.price}}</h3>
+                                    <a href="ads-details.html" class="btn btn-common float-right">View Details</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-                    <div class="featured-box">
-                        <figure>
-                            <div class="icon">
-                                <span class="bg-green"><i class="lni-heart"></i></span>
-                                <span><i class="lni-bookmark"></i></span>
-                            </div>
-                            <a href="#"><img class="img-fluid" src="assets/img/featured/img-3.jpg" alt=""></a>
-                        </figure>
-                        <div class="feature-content">
-                            <div class="product">
-                                <a href="#">Vehicle > </a>
-                                <a href="#">Cars</a>
-                            </div>
-                            <h4><a href="ads-details.html">Mercedes Benz E200 ...</a></h4>
-                            <div class="meta-tag">
-                                <span>
-                                    <a href="#"><i class="lni-user"></i> Rossi Josh</a>
-                                </span>
-                                <span>
-                                    <a href="#"><i class="lni-map-marker"></i> Washington, US</a>
-                                </span>
-                                <span>
-                                    <a href="#"><i class="lni-tag"></i> Others</a>
-                                </span>
-                            </div>
-                            <p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry.</p>
-                            <div class="listing-bottom">
-                                <h3 class="price float-left">$199.80</h3>
-                                <a href="ads-details.html" class="btn btn-common float-right">View Details</a>
-                            </div>
-                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <p class="text-center">No Products yet.</p>
                     </div>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-                    <div class="featured-box">
-                        <figure>
-                            <span class="price-save">
-                                10% Save
-                            </span>
-                            <div class="icon">
-                                <span class="bg-green"><i class="lni-heart"></i></span>
-                                <span><i class="lni-bookmark"></i></span>
-                            </div>
-                            <a href="#"><img class="img-fluid" src="assets/img/featured/img-4.jpg" alt=""></a>
-                        </figure>
-                        <div class="feature-content">
-                            <div class="product">
-                                <a href="#">Others > </a>
-                                <a href="#">Bags</a>
-                            </div>
-                            <h4><a href="ads-details.html">Brown Leather Bag ...</a></h4>
-                            <div class="meta-tag">
-                                <span>
-                                    <a href="#"><i class="lni-user"></i> Maria Barlow</a>
-                                </span>
-                                <span>
-                                    <a href="#"><i class="lni-map-marker"></i> Chicago, US</a>
-                                </span>
-                                <span>
-                                    <a href="#"><i class="lni-tag"></i> Gucci</a>
-                                </span>
-                            </div>
-                            <p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry.</p>
-                            <div class="listing-bottom">
-                                <h3 class="price float-left">$206.90</h3>
-                                <a href="ads-details.html" class="btn btn-common float-right">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-                    <div class="featured-box">
-                        <figure>
-                            <div class="icon">
-                                <span class="bg-green"><i class="lni-heart"></i></span>
-                                <span><i class="lni-bookmark"></i></span>
-                            </div>
-                            <a href="#"><img class="img-fluid" src="assets/img/featured/img-5.jpg" alt=""></a>
-                        </figure>
-                        <div class="feature-content">
-                            <div class="product">
-                                <a href="#">Electronic > </a>
-                                <a href="#">Apple</a>
-                            </div>
-                            <h4><a href="ads-details.html">Iphonex 6 Plus Factor ...</a></h4>
-                            <div class="meta-tag">
-                                <span>
-                                    <a href="#"><i class="lni-user"></i> David Givens</a>
-                                </span>
-                                <span>
-                                    <a href="#"><i class="lni-map-marker"></i> New York, US</a>
-                                </span>
-                                <span>
-                                    <a href="#"><i class="lni-tag"></i> Apple</a>
-                                </span>
-                            </div>
-                            <p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry.</p>
-                            <div class="listing-bottom">
-                                <h3 class="price float-left">$106.70</h3>
-                                <a href="ads-details.html" class="btn btn-common float-right">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-                    <div class="featured-box">
-                        <figure>
-                            <span class="price-save">
-                                35% Save
-                            </span>
-                            <div class="icon">
-                                <span class="bg-green"><i class="lni-heart"></i></span>
-                                <span><i class="lni-bookmark"></i></span>
-                            </div>
-                            <a href="#"><img class="img-fluid" src="assets/img/featured/img-6.jpg" alt=""></a>
-                        </figure>
-                        <div class="feature-content">
-                            <div class="product">
-                                <a href="#">Furniture > </a>
-                                <a href="#">Home</a>
-                            </div>
-                            <h4><a href="ads-details.html">Wooden Dining Tabl ...</a></h4>
-                            <div class="meta-tag">
-                                <span>
-                                    <a href="#"><i class="lni-user"></i> John Smith</a>
-                                </span>
-                                <span>
-                                    <a href="#"><i class="lni-map-marker"></i> New York, US</a>
-                                </span>
-                                <span>
-                                    <a href="#"><i class="lni-tag"></i> Apple</a>
-                                </span>
-                            </div>
-                            <p class="dsc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry.</p>
-                            <div class="listing-bottom">
-                                <h3 class="price float-left">$120.00</h3>
-                                <a href="ads-details.html" class="btn btn-common float-right">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% endif %}
             </div>
         </div>
     </section>
@@ -558,7 +387,7 @@
         </div>
     </section> -->
 
-    <section class="works section-padding">
+    <section name="services" class="works section-padding" id="services">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -964,5 +793,23 @@
     </section> -->
 
     {% include 'common/footer.html' %}
+
+    <script>
+        function searchAttribute(e) {
+            let ele = document.getElementById('serach_btn');
+            let city_value = document.getElementById('city_filter').value;
+            let category_value = document.getElementById('caegory_filter').value;
+            let href = "/classifieds";
+            if (city_value && category_value) {
+                href = href + '?city=' +  city_value + '&category=' +  category_value;
+            } else if (city_value) {
+                href = href + '?city=' +  city_value;
+            } else {
+                href = href + '?category=' +  category_value;
+            }
+
+            ele.setAttribute('href', href);
+        }
+    </script>
 </body>
 </html>

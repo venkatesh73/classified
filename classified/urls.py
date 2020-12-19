@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from core import views
 
 urlpatterns = [
@@ -23,11 +23,13 @@ urlpatterns = [
     path('signin/', views.signin, name="signin"),
     path('signout/', views.signout, name="signout"),
     path('classifieds/', views.classifieds, name="classifieds"),
-    path('classifieds/<int:category_id>/', views.classifieds, name="classifieds"),
-    path('classifieds/<int:category_id>/<str:location>/', views.classifieds, name="classifieds"),
     path('post/', views.post_classifieds, name="Post Classifieds"),
     path('dashboard/', views.dashboard, name="Dashboard"),
     path('myads/', views.my_ads, name="Dashboard My Ads"),
     path('backoffice/', admin.site.urls),
     path('summernote/', include('django_summernote.urls'))
+]
+
+urlpatterns += [
+    re_path(r'^classifieds/(?:city=(?P<locations>\w+)/)?/(?:category=(?P<category_id>\w+)/)?$', views.classifieds, name="classifieds")
 ]

@@ -34,17 +34,16 @@
                         <div class="sidebar-box">
                             <div class="user">
                                 <figure>
-                                    <a href="#"><img src="/static/assets/img/author/img1.jpg" alt=""></a>
+                                    <a href="#"><img src="{% static 'assets/img/user.png' %}" alt=""></a>
                                 </figure>
                                 <div class="usercontent">
-                                    <h3>Hello!</h3>
-                                    <h4>{{request.user.first_name}}</h4>
+                                    <h3>Hello {{request.user.first_name}}!</h3>
                                 </div>
                             </div>
                             <nav class="navdashboard">
                                 <ul>
                                     <li>
-                                        <a href="/dashboard">
+                                        <a class="active" href="/dashboard">
                                             <i class="lni-dashboard"></i>
                                             <span>Dashboard</span>
                                         </a>
@@ -59,6 +58,12 @@
                                         <a href="/myads">
                                             <i class="lni-layers"></i>
                                             <span>My Ads</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/offers">
+                                            <i class="lni-envelope"></i>
+                                            <span>Offers/Messages</span>
                                         </a>
                                     </li>
                                     <li>

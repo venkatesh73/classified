@@ -11,7 +11,7 @@ from django.conf import settings
 
 class CreatePostForm(forms.ModelForm):
     title = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder' : 'Title'}))
-    category = forms.ModelChoiceField(queryset=Category.objects.all().order_by('name'), widget=forms.Select(attrs={'class': 'form-control', 'placeholder' : 'Select Category'}))
+    sub_category = forms.ModelChoiceField(queryset=SubCategory.objects.all().order_by('name'), widget=forms.Select(attrs={'class': 'form-control', 'placeholder' : 'Select Category'}))
     cities = forms.ModelMultipleChoiceField(queryset=City.objects.all().order_by('name'), widget=forms.SelectMultiple(attrs={'class': 'form-control', 'placeholder' : 'Select Cities'}))
     price = forms.CharField(required = False, max_length=25, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder' : 'Price'}))
     description = SummernoteTextFormField()
@@ -28,7 +28,7 @@ class CreatePostForm(forms.ModelForm):
         model = Classifieds
         fields = [
             "title",
-            "category",
+            "sub_category",
             "cities",
             "price",
             "price_on_call",

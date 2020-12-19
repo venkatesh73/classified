@@ -32,59 +32,40 @@
                         <div class="sidebar-box">
                             <div class="user">
                                 <figure>
-                                    <a href="#"><img src="assets/img/author/img1.jpg" alt=""></a>
+                                    <a href="#"><img src="{% static 'assets/img/user.png' %}" alt=""></a>
                                 </figure>
                                 <div class="usercontent">
-                                    <h3>Hello William!</h3>
-                                    <h4>Administrator</h4>
+                                    <h3>Hello {{request.user.first_name}}!</h3>
                                 </div>
                             </div>
                             <nav class="navdashboard">
                                 <ul>
                                     <li>
-                                        <a class="active" href="dashboard.html">
+                                        <a class="active" href="/dashboard">
                                             <i class="lni-dashboard"></i>
                                             <span>Dashboard</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="account-profile-setting.html">
+                                        <a href="/profile">
                                             <i class="lni-cog"></i>
                                             <span>Profile Settings</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="account-myads.html">
+                                        <a href="/myads">
                                             <i class="lni-layers"></i>
                                             <span>My Ads</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="offermessages.html">
+                                        <a href="/offers">
                                             <i class="lni-envelope"></i>
                                             <span>Offers/Messages</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="payments.html">
-                                            <i class="lni-wallet"></i>
-                                            <span>Payments</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="account-favourite-ads.html">
-                                            <i class="lni-heart"></i>
-                                            <span>My Favourites</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="privacy-setting.html">
-                                            <i class="lni-star"></i>
-                                            <span>Privacy Settings</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
+                                        <a href="/signout">
                                             <i class="lni-enter"></i>
                                             <span>Logout</span>
                                         </a>
@@ -92,12 +73,12 @@
                                 </ul>
                             </nav>
                         </div>
-                        <div class="widget">
+                        <!-- <div class="widget">
                             <h4 class="widget-title">Advertisement</h4>
                             <div class="add-box">
                                 <img class="img-fluid" src="assets/img/img1.jpg" alt="">
                             </div>
-                        </div>
+                        </div> -->
                     </aside>
                 </div>
                 <div class="col-sm-12 col-md-8 col-lg-9">

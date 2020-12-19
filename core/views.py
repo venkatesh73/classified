@@ -2,7 +2,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from core.core_modules import *
-from core.models import Category, SubCategory, ClassifiedsMedia, Classifieds
+# from core.models import Category, SubCategory, ClassifiedsMedia, Classifieds
 from core.forms.sign_up_form import SignUpForm
 from core.forms.login_form import SignInForm
 from core.forms.post_form import CreatePostForm
@@ -10,16 +10,19 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 import uuid
 import os
+from urllib.parse import parse_qs, urlparse
 
 def index(request):
     locations = get_locations()
     categories = get_categories()
     latest_products = get_latest_products()
-
+    sub_categories = sub_categoreis_post_count()
+    
     response = {
         "locations": locations,
         "categories": categories,
-        "latest_products": latest_products
+        "latest_products": latest_products,
+        'sub_categories' :  sub_categories.items()
     }
 
     return render(request, 'index.html', response)
@@ -44,9 +47,11 @@ def signin(request):
             email = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(username=email, password=password)
-            login(request, user)
-            return HttpResponseRedirect('/dashboard')
-
+            if user is not None:
+                login(request, user)
+                return HttpResponseRedirect('/dashboard')
+            else:
+                return render(request, 'signin.html', {'form' : form})
     return render(request, 'signin.html', {'form' : form})
 
 def signout(request):
@@ -60,8 +65,34 @@ def dashboard(request):
 def category(request):
     return render(request, 'category.html', {})
 
-def classifieds(request, category_id = None, location = None):
-    return render(request, 'classifieds.html', {})
+def classifieds(request):
+    params = request.GET
+    filters = models.Q(active=True)
+
+    if 'city' in params:
+        filters &= models.Q(
+            cities__in=params['city'],
+        )
+
+    if 'category' in params:
+        filters &= models.Q(
+            sub_category=params['category'],
+        )
+        
+    locations = get_locations()
+    sub_categories = sub_categoreis_post_count()
+    
+    qs = Classifieds.objects.filter(filters).order_by('-id')
+
+    for post in qs:
+        media = ClassifiedsMedia.objects.filter(classifieds=post.id, type__icontains="image").first()
+        setattr(post, "media", media)
+    
+    return render(request, 'classifieds.html', {
+        'locations' : locations,
+        'sub_categories' :  sub_categories.items(),
+        'classifieds' : qs
+    })
 
 @login_required(login_url="signin")
 def post_classifieds(request):
@@ -96,6 +127,7 @@ def handle_uploaded_file(f):
     
     return file_name
 
+@login_required(login_url="signin")
 def my_ads(request):
     user_classifieds = Classifieds.objects.filter(user=request.user.id)
     for post in user_classifieds:

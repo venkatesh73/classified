@@ -21,3 +21,15 @@ Python3 and Django Setup
          - virtualenv classifiedenv (Create a VirtualENV)
          - source classifiedenv/bin/activate (to activate VirtualENV)
          - pip3 install gunicorn psycopg2 - (Make sure Ubuntu/OS build-tools have been installed)
+
+    - Setup - Gunicorn
+        - sudo nano /etc/systemd/system/gunicorn.service
+        - sudo systemctl daemon-reload
+        - sudo systemctl restart gunicorn
+        - sudo systemctl status gunicorn
+        - sudo journalctl -u gunicorn (to check gunicorn logs)
+    
+    - Setup - nginx 
+        - sudo nano /etc/nginx/sites-available/classified
+        - sudo nginx -t
+        - sudo systemctl restart nginx

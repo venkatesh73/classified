@@ -35,7 +35,7 @@ class City(TimeStamps):
 
 class Classifieds(TimeStamps):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE) 
+    sub_category = models.ForeignKey(SubCategory, on_delete=models.CASCADE) 
     cities = models.ManyToManyField(City)
     title = models.TextField(null=False)
     description = models.TextField(null=False)
