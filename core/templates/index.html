@@ -62,7 +62,7 @@
                     <div id="categories-icon-slider" class="categories-wrapper owl-carousel owl-theme">
                         {% for ctg in categories %}
                         <div class="item">
-                            <a href="/classifieds/{{ctg.id}}">
+                            <a href="/classifieds/?category={{ctg.id}}">
                                 <div class="category-icon-item">
                                     <div class="icon-box">
                                         <div class="icon">
@@ -93,14 +93,14 @@
                                     <span class="bg-green"><i class="lni-heart"></i></span>
                                     <span><i class="lni-bookmark"></i></span>
                                 </div> -->
-                                <a href="#"><img class="img-fluid" src="{% static product.media %}" alt=""></a>
+                                <a href="/classifieds/{{product.id}}/info"><img class="img-fluid" src="{% static product.media %}" alt=""></a>
                             </figure>
                             <div class="feature-content">
                                 <div class="product">
                                     <a href="#">{{product.sub_category.category.name}} > </a>
                                     <a href="#">{{product.sub_category.name}}</a>
                                 </div>
-                                <h4><a href="#">{{product.title}}</a></h4>
+                                <h4><a href="/classifieds/{{product.id}}/info">{{product.title}}</a></h4>
                                 <div class="meta-tag">
                                     <span>
                                         <a href="#"><i class="lni-user"></i> {{product.user.first_name}} </a>
@@ -117,7 +117,7 @@
                                 </p>
                                 <div class="listing-bottom">
                                     <h3 class="price float-left">KES{{product.price}}</h3>
-                                    <a href="ads-details.html" class="btn btn-common float-right">View Details</a>
+                                    <a href="/classifieds/{{product.id}}/info" class="btn btn-common float-right">View Details</a>
                                 </div>
                             </div>
                         </div>
@@ -504,7 +504,7 @@
         </div>
     </section> -->
 
-    <section id="pricing-table" class="section-padding">
+    <!-- <section id="pricing-table" class="section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -575,7 +575,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- <section class="testimonial section-padding">
         <div class="container">

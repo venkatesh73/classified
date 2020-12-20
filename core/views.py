@@ -62,9 +62,6 @@ def signout(request):
 def dashboard(request):
     return render(request, 'dashboard.html', {})
 
-def category(request):
-    return render(request, 'category.html', {})
-
 def classifieds(request):
     params = request.GET
     filters = models.Q(active=True)
@@ -93,6 +90,16 @@ def classifieds(request):
         'sub_categories' :  sub_categories.items(),
         'classifieds' : qs
     })
+
+def post_info(request, id):
+    post = Classifieds.objects.filter(id=id, active=True)[0]
+    if post:
+        media = ClassifiedsMedia.objects.filter(classifieds=post)
+        setattr(post, 'media', media)
+        print(post)
+        return render(request, 'ads-details.html', {'post':  post})
+    else:
+        return render(request, '404.html', {})
 
 @login_required(login_url="signin")
 def post_classifieds(request):

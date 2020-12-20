@@ -25,6 +25,7 @@ urlpatterns = [
     path('signin/', views.signin, name="signin"),
     path('signout/', views.signout, name="signout"),
     path('classifieds/', views.classifieds, name="classifieds"),
+    path('classifieds/<int:id>/info', views.post_info, name="post_info"),
     path('post/', views.post_classifieds, name="Post Classifieds"),
     path('dashboard/', views.dashboard, name="Dashboard"),
     path('myads/', views.my_ads, name="Dashboard My Ads"),
