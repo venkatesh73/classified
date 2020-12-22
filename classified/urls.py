@@ -24,6 +24,7 @@ urlpatterns = [
     path('signup/', views.signup, name="signup"),
     path('signin/', views.signin, name="signin"),
     path('signout/', views.signout, name="signout"),
+    path('forgot-password/', views.reset_password, name="Forgot Password"),
     path('classifieds/', views.classifieds, name="classifieds"),
     path('classifieds/<int:id>/info', views.post_info, name="post_info"),
     path('post/', views.post_classifieds, name="Post Classifieds"),

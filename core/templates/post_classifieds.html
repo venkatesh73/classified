@@ -5,6 +5,11 @@
 <link rel="stylesheet" type="text/css" href="{% static 'assets/css/summernote.css' %}">
 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
 {{ form.media }}
+<style>
+    ul.errorlist > li {
+        color:tomato;
+    }
+</style>
 <body>
     <header id="header-wrap">
         {% include 'common/navbar.html' %}
@@ -104,12 +109,12 @@
                                                 </div>
                                             {% endif %}
                                             {% if field.name == "classifieds_media" %}
-                                                <label class="text-danger">Atlest one media file is required *</label>
+                                                <label class="text-danger">UPLOAD MINIMUM OF 3 AND MAXIMUM OF 5 MEDIA FILES. *</label>
                                                 <label class="tg-fileuploadlabel" for="tg-photogallery">
                                                     <span>Drop files anywhere to upload</span>
                                                     <span>Or</span>
                                                     <span class="btn btn-common">Select Files</span>
-                                                    <span>Maximum upload file size: 2.5 MB</span>
+                                                    <span>Maximum upload file size: 500KB/each</span>
                                                     {{field}}
                                                 </label>
                                             {% endif %}

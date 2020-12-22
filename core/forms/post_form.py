@@ -36,3 +36,21 @@ class CreatePostForm(forms.ModelForm):
             "description",
             "classifieds_media"
         ]
+
+    def clean_classifieds_media(self):
+        files = self.files.getlist('classifieds_media')
+        if len(files) < 3:
+            raise forms.ValidationError('Upload minmum of 3 Media files and max to 5.')
+
+        if len(files) > 5:
+            raise forms.ValidationError('Upload minmum of 3 Media files and max to 5.')
+
+        valid_sizes = True
+        for media in files:
+            if media.size > 500000:
+                valid_sizes = False
+
+        if not valid_sizes:
+            raise forms.ValidationError('Uploaded file sizes should be less than or equal to 500KB.')
+
+        return None

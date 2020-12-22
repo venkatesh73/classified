@@ -58,6 +58,9 @@ def signout(request):
     logout(request)
     return HttpResponseRedirect('/')
 
+def reset_password(request):
+    return render(request, 'forgot-password.html', {})
+
 @login_required(login_url='signin')
 def dashboard(request):
     return render(request, 'dashboard.html', {})
@@ -105,11 +108,11 @@ def post_info(request, id):
 def post_classifieds(request):
     if request.method == "POST":
         form  = CreatePostForm(request.POST, request.FILES)
-        print(request.FILES.getlist('classifieds_media'))
         if form.is_valid():
             post_details = form.save(commit=False)
             post_details.user_id = request.user.id
             post_details.save()
+            form.save_m2m()
             files = request.FILES.getlist('classifieds_media')
             for media in files:
                 file_path = handle_uploaded_file(media)
@@ -118,7 +121,7 @@ def post_classifieds(request):
                     media_url = file_path,
                     type = media.content_type
                 )
-            return HttpResponseRedirect('/myads')
+            return HttpResponseRedirect('/myads')    
     else:
         form  = CreatePostForm()
 

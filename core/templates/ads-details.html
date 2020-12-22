@@ -23,7 +23,6 @@
         </div>
     </div>
 
-
     <div class="section-padding">
         <div class="container">
 
@@ -46,7 +45,14 @@
                             <h2>{{post.title}}</h2>
                             <div class="details-meta">
                                 <span><a href="#"><i class="lni-alarm-clock"></i>{{post.created_at}}</a></span>
-                                <span><a href="#"><i class="lni-map-marker"></i>{{post.cities}}</a></span>
+                                <span>
+                                    <a href="#">
+                                        <i class="lni-map-marker"></i>
+                                        {% for city in post.cities.all %}
+                                            {{city.name}}
+                                        {% endfor %}
+                                    </a>
+                                </span>
                                 <span><a href="#"><i class="lni-eye"></i>0 View</a></span>
                             </div>
                             <p class="mb-4">
@@ -66,7 +72,7 @@
                                 </ul>
                             </div>
                             <div class="float-right">
-                                <div class="share">
+                                <!-- <div class="share">
                                     <div class="social-link">
                                         <a class="facebook" data-toggle="tooltip" data-placement="top" title="facebook"
                                             href="#"><i class="lni-facebook-filled"></i></a>
@@ -77,7 +83,7 @@
                                         <a class="google" data-toggle="tooltip" data-placement="top" title="google plus"
                                             href="#"><i class="lni-google-plus"></i></a>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -222,7 +228,7 @@
         </div>
     </div>
 
-    <section class="subscribes section-padding">
+    <!-- <section class="subscribes section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -247,7 +253,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     {% include 'common/footer.html' %}
 </body>
